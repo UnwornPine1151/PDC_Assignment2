@@ -1,0 +1,2 @@
+BeverageProduct{productname = Apple Juice, productprice in NZD = 4.5, productdescription = refreshing freshly squeezed apple juicesizeinmillilitres = 400, energyinkj = 850, beveragetype = JUICES},-2147483648
+ElectronicProduct{productname = MacBook 16 pro, productprice in NZD = 1200.0, productdescription = powerful 16 inch notebook with LCD displaybrand = Apple, model = MacBook pro 16inch 512gb, warranty = 36},-2147483648
