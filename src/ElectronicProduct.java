@@ -46,7 +46,7 @@ public class ElectronicProduct extends Product{
 
     @Override
     public String toString() { // this is a toString method for ElectronicProduct that prints out all of the ElectronicProducts variables, including the variables it gets from the Product class
-        return "ElectronicProduct{"+ super.toString() + "brand = " + brand + ", model = " + model + ", warranty = " + warranty + '}';
+        return "Type of ElectronicProduct: "+ super.toString() + "Brand = " + brand + "\nModel = " + model + " \nWarranty = " + warranty;
     }
     
     

@@ -54,7 +54,7 @@ public class BeverageProduct extends Product{
 
     @Override
     public String toString() { // toString method for the BeverageProduct class, displays all of its variables
-        return "BeverageProduct{" + super.toString()+ "sizeinmillilitres = " + sizeinmillilitres + ", energyinkj = " + energyinkj + ", beveragetype = " + beveragetype + '}';
+        return "Type of Beverage Product" + super.toString()+ "Size In Millilitres = " + sizeinmillilitres + "\n"+"Energy In KJ = " + energyinkj + "\n"+ "Beverage Type = " + beveragetype;
     }
     
     

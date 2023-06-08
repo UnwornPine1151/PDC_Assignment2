@@ -52,7 +52,7 @@ public class FoodProduct extends Product{
 
     @Override
     public String toString() { // a toString method that displays all of the variables for FoodProduct and the variables it gets from Product
-        return "FoodProduct{"+ super.toString() + "calories = " + calories + ", sizeingrams = " + sizeingrams + ", foodtype = " + foodtype + '}';
+        return "Type of Food Product"+ super.toString() + "Calories = " + calories + "\n" + "Size In Grams = " + sizeingrams + "\n"+"Food Type = " + foodtype;
     }
 
     

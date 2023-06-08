@@ -49,7 +49,7 @@ public abstract class Product {
 
     @Override
     public String toString() { // toString method that displays the Products name, price and description
-        return "productname = " + productname + ", productprice in NZD = " + productprice + ", productdescription = " + productdescription;
+        return "\n"+"Product Name = " + productname + "\n" + "Product Price in NZD = " + productprice + "\n" + "Product Description = " + productdescription+"\n";
     }
     
 }

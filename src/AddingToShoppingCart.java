@@ -158,8 +158,9 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         ShoppingCartLabel = new javax.swing.JLabel();
         ProductDescriptionLabel = new javax.swing.JLabel();
-        ActualDescriptionLabel = new javax.swing.JLabel();
         TotalPriceLabel = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        ProductDescriptionArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -188,9 +189,11 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
 
         ProductDescriptionLabel.setText("Product Description");
 
-        ActualDescriptionLabel.setText("actual product description");
-
         TotalPriceLabel.setText("Total Price:");
+
+        ProductDescriptionArea.setColumns(20);
+        ProductDescriptionArea.setRows(5);
+        jScrollPane3.setViewportView(ProductDescriptionArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,14 +207,14 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
                         .addComponent(TotalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(ProductDescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ActualDescriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
@@ -231,8 +234,8 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ProductDescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ActualDescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -245,7 +248,7 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
         Product actualSelectedProduct = findProductByName(selectedProduct);
         if(actualSelectedProduct != null)
         {
-        ActualDescriptionLabel.setText(actualSelectedProduct.toString());
+        ProductDescriptionArea.setText(actualSelectedProduct.toString());
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -297,7 +300,7 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ActualDescriptionLabel;
+    private javax.swing.JTextArea ProductDescriptionArea;
     private javax.swing.JLabel ProductDescriptionLabel;
     private javax.swing.JLabel ShoppingCartLabel;
     private javax.swing.JLabel TotalPriceLabel;
@@ -305,6 +308,7 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

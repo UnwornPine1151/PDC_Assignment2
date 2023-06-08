@@ -73,7 +73,7 @@ public class HouseholdProduct extends Product{
 
     @Override
     public String toString() { //toString method for Household subclass so that its information can be easily displayed/printed out to the user
-        return "Household{" + super.toString() + "width in cm = " + width + ", height in cm = " + height + ", length in cm = " + length + ", weight in kg = " + weight + ", producttype = " + producttype + '}';
+        return "Type of Household Product" + super.toString() + "Width In CM = " + width + "\n"+ "Height In CM = " + height + "\n"+ "Length In CM = " + length + "\n" +"Weight In KG = " + weight + "\n"+"Product Type = " + producttype;
     }
     
 }
