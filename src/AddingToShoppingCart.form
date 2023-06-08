@@ -23,29 +23,37 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="192" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="ShoppingCartLabel" min="-2" pref="118" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="TotalPriceLabel" min="-2" pref="122" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="180" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jComboBox1" min="-2" pref="544" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="87" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="ProductDescriptionLabel" min="-2" pref="453" max="-2" attributes="0"/>
+                  <Component id="ActualDescriptionLabel" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="ShoppingCartLabel" min="-2" pref="118" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="ShoppingCartLabel" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="ShoppingCartLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TotalPriceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="504" max="-2" attributes="0"/>
@@ -56,6 +64,10 @@
                           <Component id="jComboBox1" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ProductDescriptionLabel" min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ActualDescriptionLabel" min="-2" pref="58" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="16" max="32767" attributes="0"/>
@@ -116,6 +128,21 @@
     <Component class="javax.swing.JLabel" name="ShoppingCartLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Your Shopping Cart:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ProductDescriptionLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Product Description"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ActualDescriptionLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="actual product description"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="TotalPriceLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Total Price:"/>
       </Properties>
     </Component>
   </SubComponents>
