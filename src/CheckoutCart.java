@@ -8,12 +8,19 @@
  * @author kstor
  */
 public class CheckoutCart extends javax.swing.JFrame {
-
+    
+     ShoppingCart shoppingcart = new ShoppingCart();
     /**
      * Creates new form CheckoutCart
      */
     public CheckoutCart() {
         initComponents();
+    }
+    
+    public CheckoutCart(ShoppingCart shoppingcart)
+    {
+        initComponents();
+        this.shoppingcart = shoppingcart;    
     }
 
     /**
@@ -25,17 +32,105 @@ public class CheckoutCart extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        NameLabel = new javax.swing.JLabel();
+        AgeLabel = new javax.swing.JLabel();
+        AgeSpinner = new javax.swing.JSpinner();
+        ContactNumberLabel = new javax.swing.JLabel();
+        ContactEmailLabel = new javax.swing.JLabel();
+        DeliveryAddressLabel = new javax.swing.JLabel();
+        NameTextField = new javax.swing.JTextField();
+        ContactNumberTextField = new javax.swing.JTextField();
+        ContactEmailTextField = new javax.swing.JTextField();
+        DeliveryAddressTextField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ShoppingCartCheckoutTextArea = new javax.swing.JTextArea();
+        CheckoutCartLabel = new javax.swing.JLabel();
+        CheckoutTotalPriceLabel = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 204, 153));
+
+        NameLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        NameLabel.setText("Name:");
+
+        AgeLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        AgeLabel.setText("Age:");
+
+        ContactNumberLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ContactNumberLabel.setText("Contact Number:");
+
+        ContactEmailLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ContactEmailLabel.setText("Contact Email:");
+
+        DeliveryAddressLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        DeliveryAddressLabel.setText("Delivery Address:");
+
+        ShoppingCartCheckoutTextArea.setEditable(false);
+        ShoppingCartCheckoutTextArea.setColumns(20);
+        ShoppingCartCheckoutTextArea.setRows(5);
+        jScrollPane1.setViewportView(ShoppingCartCheckoutTextArea);
+
+        CheckoutCartLabel.setText("Checkout Cart:");
+
+        CheckoutTotalPriceLabel.setText("Checkout Cart Total Price:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(DeliveryAddressTextField)
+                    .addComponent(NameTextField)
+                    .addComponent(ContactNumberTextField)
+                    .addComponent(ContactEmailTextField)
+                    .addComponent(DeliveryAddressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                    .addComponent(ContactEmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AgeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AgeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ContactNumberLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(135, 135, 135)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(CheckoutCartLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CheckoutTotalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(NameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(CheckoutCartLabel)
+                        .addComponent(CheckoutTotalPriceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(AgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(AgeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(ContactNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ContactNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
+                        .addComponent(ContactEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ContactEmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
+                .addComponent(DeliveryAddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DeliveryAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -77,5 +172,19 @@ public class CheckoutCart extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AgeLabel;
+    private javax.swing.JSpinner AgeSpinner;
+    private javax.swing.JLabel CheckoutCartLabel;
+    private javax.swing.JLabel CheckoutTotalPriceLabel;
+    private javax.swing.JLabel ContactEmailLabel;
+    private javax.swing.JTextField ContactEmailTextField;
+    private javax.swing.JLabel ContactNumberLabel;
+    private javax.swing.JTextField ContactNumberTextField;
+    private javax.swing.JLabel DeliveryAddressLabel;
+    private javax.swing.JTextField DeliveryAddressTextField;
+    private javax.swing.JLabel NameLabel;
+    private javax.swing.JTextField NameTextField;
+    private javax.swing.JTextArea ShoppingCartCheckoutTextArea;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
