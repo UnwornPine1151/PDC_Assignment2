@@ -32,7 +32,7 @@ public class ProductList implements Iterable<Product>{
     public List<Product> getProductList() { //getter for ProductList
         return productlist;
     }
-
+        
     @Override
     public Iterator<Product> iterator() {
         return productlist.iterator();
