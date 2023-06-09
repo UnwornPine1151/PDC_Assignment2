@@ -16,7 +16,7 @@ public class CheckoutCart extends javax.swing.JFrame {
     ShoppingCart shoppingcart = new ShoppingCart();
     Payment payment = new Payment();
     UserInfo customerinfo = new UserInfo();
-    
+
     /**
      * Creates new form CheckoutCart
      */
@@ -29,28 +29,26 @@ public class CheckoutCart extends javax.swing.JFrame {
         this.shoppingcart = shoppingcart;
         loadShoppingCart(shoppingcart.getShoppingcart());
     }
-    
-    public void loadShoppingCart(HashMap<Product, Integer> shoppingcart)
-    {
+
+    public void loadShoppingCart(HashMap<Product, Integer> shoppingcart) {
         ShoppingCartCheckoutTextArea.setText(""); // Clear the text area before appending the updated content
         double totalCost = 0.0;
-        
+
         for (Product key : shoppingcart.keySet()) {
             ShoppingCartCheckoutTextArea.append(key.getProductname() + " $" + key.getProductprice() + "\n");
             double price = key.getProductprice();
             totalCost += price;
         }
-        
-        CheckoutTotalPriceLabel.setText("Checkout Cart Total Price: $"+totalCost);
-        
-    
+
+        CheckoutTotalPriceLabel.setText("Checkout Cart Total Price: $" + totalCost);
+
     }
-    
+
     public void updateCurrentDetailsText() // method that updates the currentDetails text, it is invoked everytime a set button is pressed so it displays up to date details
     {
-        CurrentDetailsTextArea.setText("Name: "+customerinfo.getName()+ "\n"+ "Age: "+customerinfo.getAge()+ "\n"+ "Contact Number: "+
-                customerinfo.getContactnumber()+ "\n"+"Contact Email: "+customerinfo.getContactemail()+ "\n"+"Delivery Address: "+customerinfo.getDeliveryaddress()
-        + "\n"+ "CVC: "+payment.getCvc()+ "\n"+ "Card Expiry: "+payment.getCardexpiry()+ "\n"+ "Card Number: "+payment.getCardnumber()+ "\n"+ "Cardholder Full Name: "+payment.getCardholderfullname());
+        CurrentDetailsTextArea.setText("Name: " + customerinfo.getName() + "\n" + "Age: " + customerinfo.getAge() + "\n" + "Contact Number: "
+                + customerinfo.getContactnumber() + "\n" + "Contact Email: " + customerinfo.getContactemail() + "\n" + "Delivery Address: " + customerinfo.getDeliveryaddress()
+                + "\n" + "CVC: " + payment.getCvc() + "\n" + "Card Expiry: " + payment.getCardexpiry() + "\n" + "Card Number: " + payment.getCardnumber() + "\n" + "Cardholder Full Name: " + payment.getCardholderfullname());
     }
 
     /**
@@ -410,15 +408,13 @@ public class CheckoutCart extends javax.swing.JFrame {
 
     private void AgeSetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeSetButtonActionPerformed
         int age = (int) AgeSpinner.getValue(); //gets the value of the agespinner as an int when add button is pressed
-        
-        if(age >= 1 && age <= 120) // if age is between 1 and 120, including 1 and 120
+
+        if (age >= 1 && age <= 120) // if age is between 1 and 120, including 1 and 120
         {
             customerinfo.setAge(age); //sets the customers value of age to the value of the age temp age int 
             JOptionPane.showMessageDialog(this, "Age set successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
-        }
-        
-        else // invalid input, and displays a error message asking the user to select a valid age between 1 and 120
+        } else // invalid input, and displays a error message asking the user to select a valid age between 1 and 120
         {
             JOptionPane.showMessageDialog(this, "Please select a valid age between 1 and 120.", "Invalid Age", JOptionPane.ERROR_MESSAGE);
         }
@@ -426,14 +422,13 @@ public class CheckoutCart extends javax.swing.JFrame {
 
     private void ContactNumberSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactNumberSetActionPerformed
         String phonenumber = ContactNumberTextField.getText();
-        
-        if(phonenumber.matches("\\d{10}")) // the phone number is 10 digits, therefor valid phone number
+
+        if (phonenumber.matches("\\d{10}")) // the phone number is 10 digits, therefor valid phone number
         {
             customerinfo.setContactnumber(phonenumber); // cause the phone number is valid the customers contactnumber is updated to the phonenumber value
             JOptionPane.showMessageDialog(this, "Phone number set successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
-        }
-        else // the phone number is not valid, not 10 digits, therefore displays a error message
+        } else // the phone number is not valid, not 10 digits, therefore displays a error message
         {
             JOptionPane.showMessageDialog(this, "Please input a valid 10 digit phone number.", "Invalid Phone Number", JOptionPane.ERROR_MESSAGE);
         }
@@ -441,14 +436,13 @@ public class CheckoutCart extends javax.swing.JFrame {
 
     private void SetContactEmailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetContactEmailButtonActionPerformed
         String email = ContactEmailTextField.getText();
-        
-        if(email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) // the regex "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$" was generated by chatgpt because i was not sure how to get that to validate an email
+
+        if (email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) // the regex "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$" was generated by chatgpt because i was not sure how to get that to validate an email
         {
             customerinfo.setContactemail(email); // if the email is valid it updates the customerinfos contactemail to the email from the textfield
             JOptionPane.showMessageDialog(this, "Contact Email set successfully.", "Success", JOptionPane.INFORMATION_MESSAGE); //displays a message saying the contact email is set successfully
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
-        }
-        else // if the email is not valid shows an error message asking the user to put in a valid email address
+        } else // if the email is not valid shows an error message asking the user to put in a valid email address
         {
             JOptionPane.showMessageDialog(this, "Please input a valid email", "Invalid Contact Email", JOptionPane.ERROR_MESSAGE);
         }
@@ -456,95 +450,80 @@ public class CheckoutCart extends javax.swing.JFrame {
 
     private void SetDeliveryAddressButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetDeliveryAddressButtonActionPerformed
         String deliveraddress = DeliveryAddressTextField.getText();
-        
-        if(deliveraddress.matches("^[a-zA-Z0-9\\s]+$"))
-        {
+
+        if (deliveraddress.matches("^[a-zA-Z0-9\\s]+$")) {
             customerinfo.setDeliveryaddress(deliveraddress);
             JOptionPane.showMessageDialog(this, "Delivery Address Confirmed.", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
-        }
-        else
-        {
+        } else {
             JOptionPane.showMessageDialog(this, "Please input a valid Delivery Address", "Invalid Delivery Address", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_SetDeliveryAddressButtonActionPerformed
 
     private void SetCVCButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetCVCButtonActionPerformed
-       String cvc = CVCTextField.getText();
-       
-       if(payment.setCvc(cvc) == true) //if the validation in the Payment class for setCvc checks out the code will execute and add the CVC to the payment object and display a message
-       {
-           payment.setCvc(cvc);
-           JOptionPane.showMessageDialog(this, "CVC Noted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-           updateCurrentDetailsText(); //updates the currentDetailsTextArea
-       }
-       else
-       {
-           JOptionPane.showMessageDialog(this, "Please input a valid 3 digit CVC", "Invalid CVC", JOptionPane.ERROR_MESSAGE);
-       }
-           
+        String cvc = CVCTextField.getText();
+
+        if (payment.setCvc(cvc) == true) //if the validation in the Payment class for setCvc checks out the code will execute and add the CVC to the payment object and display a message
+        {
+            payment.setCvc(cvc);
+            JOptionPane.showMessageDialog(this, "CVC Noted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            updateCurrentDetailsText(); //updates the currentDetailsTextArea
+        } else {
+            JOptionPane.showMessageDialog(this, "Please input a valid 3 digit CVC", "Invalid CVC", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_SetCVCButtonActionPerformed
 
     private void SetCardExpiryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetCardExpiryActionPerformed
         String expiry = CardExpiryTextField.getText();
-        
-        if(payment.setCardExpiry(expiry) == true) // if the validation from the Payment class passes for the cardexpiry the value will be updated and message returned letting the user know
+
+        if (payment.setCardExpiry(expiry) == true) // if the validation from the Payment class passes for the cardexpiry the value will be updated and message returned letting the user know
         {
             payment.setCardExpiry(expiry);
             JOptionPane.showMessageDialog(this, "Card Expiry Validated.", "Validation Successful", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
+        } else {
+            JOptionPane.showMessageDialog(this, "Please input a valid Card Expiry use the format MM/YY", "Invalid Card Expiry", JOptionPane.ERROR_MESSAGE);
         }
-        else
-        {
-              JOptionPane.showMessageDialog(this, "Please input a valid Card Expiry use the format MM/YY", "Invalid Card Expiry", JOptionPane.ERROR_MESSAGE);
-        }
-            
+
     }//GEN-LAST:event_SetCardExpiryActionPerformed
 
     private void SetCardholderFullNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetCardholderFullNameButtonActionPerformed
         String cardholderfullname = CardHolderFullNameTextField.getText();
-        
-        if(cardholderfullname.matches("[a-zA-Z]+")) // if the cardholderfullname variable from the text field has a valid name, ie only letters, update the name cardholdername value and give the user a message
+
+        if (cardholderfullname.matches("[a-zA-Z]+")) // if the cardholderfullname variable from the text field has a valid name, ie only letters, update the name cardholdername value and give the user a message
         {
             payment.setCardholderfullname(cardholderfullname);
             JOptionPane.showMessageDialog(this, "Cardholder Full Name Validated.", "Validation Successful", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
-        }
-        else
-        {
+        } else {
             JOptionPane.showMessageDialog(this, "Please input a valid full name using letters and no spaces", "Invalid Cardholder Full Name", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_SetCardholderFullNameButtonActionPerformed
 
     private void SetCardNumberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetCardNumberButtonActionPerformed
         String cardnum = CardNumberTextField.getText();
-        
-        if(payment.setCardnumber(cardnum) == true)
-        {
+
+        if (payment.setCardnumber(cardnum) == true) {
             payment.setCardnumber(cardnum);
             JOptionPane.showMessageDialog(this, "Card Number Validated.", "Validation Successful", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
-        }
-        else
-        {
+        } else {
             JOptionPane.showMessageDialog(this, "Please input your valid 16 digit Card Number", "Invalid Card Number", JOptionPane.ERROR_MESSAGE);
         }
-            
+
     }//GEN-LAST:event_SetCardNumberButtonActionPerformed
 
     private void ConfirmCheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmCheckoutButtonActionPerformed
-        if (customerinfo.getName() == null || customerinfo.getAge() == 0 || customerinfo.getContactnumber() == null || customerinfo.getContactemail() == null || 
-            customerinfo.getDeliveryaddress() == null || payment.getCvc() == null || payment.getCardexpiry() == null || payment.getCardnumber() == null || 
-            payment.getCardholderfullname() == null) 
-        {
+        if (customerinfo.getName() == null || customerinfo.getAge() == 0 || customerinfo.getContactnumber() == null || customerinfo.getContactemail() == null
+                || customerinfo.getDeliveryaddress() == null || payment.getCvc() == null || payment.getCardexpiry() == null || payment.getCardnumber() == null
+                || payment.getCardholderfullname() == null) {
             JOptionPane.showMessageDialog(this, "Please check current details, there can be no null values before checkout", "Update Details", JOptionPane.ERROR_MESSAGE);
-        }
-        else
-        {
+        } else {
             JOptionPane.showMessageDialog(this, "All your details are up to date, Thank You for Shopping with us!!!\n Your product will be Delivered soon, Have a Great Day!!!", "Thank You", JOptionPane.INFORMATION_MESSAGE);
         }
-        
-        
+
+
     }//GEN-LAST:event_ConfirmCheckoutButtonActionPerformed
 
     private void RestartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartButtonActionPerformed
@@ -553,7 +532,7 @@ public class CheckoutCart extends javax.swing.JFrame {
                 new AddingToShoppingCart().setVisible(true);
             }
         });
-         dispose();
+        dispose();
     }//GEN-LAST:event_RestartButtonActionPerformed
 
     /**

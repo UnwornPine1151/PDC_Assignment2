@@ -14,10 +14,10 @@ public class Payment {
     private String cardholderfullname;
     private String cvc;
 
-    public Payment()
-    {
-        
+    public Payment() {
+
     }
+
     public Payment(String cardnumber, String cardexpiry, String cardholderfullname, String cvc) { // construcor that takes the cards details
         this.cardnumber = cardnumber;
         this.cardexpiry = cardexpiry;
@@ -28,7 +28,7 @@ public class Payment {
     public String getCardexpiry() { // getter for card expiry
         return cardexpiry;
     }
-    
+
     public boolean setCardExpiry(String expiry) { // setter for card expiry makes sure it follows the MM/YY format
         if (expiry.matches("\\d{2}/\\d{2}")) {
             cardexpiry = expiry;
@@ -51,14 +51,13 @@ public class Payment {
     }
 
     public boolean setCvc(String cvc) { // setter for cvc
-       if (cvc.matches("\\d{3}")) {
+        if (cvc.matches("\\d{3}")) {
             this.cvc = cvc;
             return true; // Validation successful!, cvc has 3 digits
         } else {
             return false; // Validation unsuccessful, card does not contain 3 digits or has letters or other values other than digits
         }
     }
-    
 
     public String getCardnumber() { //getter for cardnumber
         return cardnumber;
@@ -72,5 +71,4 @@ public class Payment {
             return false; // Validation unsuccessful, card does not contain 16 digits or has letters or other values other than digits
         }
     }
-
 }

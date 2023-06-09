@@ -124,10 +124,9 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
             for (Product product : productList.getProductList()) {
                 jComboBox1.addItem(product.getProductname());
             }
-        }
-        else{
-           String errorMessage = "ProductList is null";
-           JOptionPane.showMessageDialog(this, errorMessage, "Error", JOptionPane.ERROR_MESSAGE); // shows a error message on screen when the productList is null
+        } else {
+            String errorMessage = "ProductList is null";
+            JOptionPane.showMessageDialog(this, errorMessage, "Error", JOptionPane.ERROR_MESSAGE); // shows a error message on screen when the productList is null
         }
     }
 
@@ -142,8 +141,8 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
 
         return null;
     }
-    
-     public void iterateShoppingCartKeys(HashMap<Product, Integer> shoppingcart) { // method so i can iterate through the shoppingcart, need it for remove button
+
+    public void iterateShoppingCartKeys(HashMap<Product, Integer> shoppingcart) { // method so i can iterate through the shoppingcart, need it for remove button
         shoppingCartText.setText(""); // Clear the text area before appending the updated content
         for (Product key : shoppingcart.keySet()) {
             shoppingCartText.append(key.getProductname() + " $" + key.getProductprice() + "\n");
@@ -303,24 +302,23 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
         String selectedProduct = (String) jComboBox1.getSelectedItem();// gets a string representation for the value of the Product that is selected in the combobox
         ProductDescriptionLabel.setText(selectedProduct + " Product Description:"); //updates the label so it states that it is the product + Product Description, for example, iphone8 Product Description:
         Product actualSelectedProduct = findProductByName(selectedProduct);
-        if(actualSelectedProduct != null)
-        {
-        ProductDescriptionArea.setText(actualSelectedProduct.toString());
+        if (actualSelectedProduct != null) {
+            ProductDescriptionArea.setText(actualSelectedProduct.toString());
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
-        //add button method
+    //add button method
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         String selectedProduct = (String) jComboBox1.getSelectedItem(); // makes selected product equal to the current product name that is selected in the combobox
         Product actualSelectedProduct = findProductByName(selectedProduct); //uses the findSelectedproduct method to compare the product name in the combobox to the product
         shoppingcart.addToShoppingcart(actualSelectedProduct); // adds that product to the product list
         String currentText = shoppingCartText.getText(); //saves the current text in the jtextarea to a string so it can be appended
-        String newText = currentText + actualSelectedProduct.getProductname() + "  $"+actualSelectedProduct.getProductprice() + "\n"; // appends the Strings to the jtextArea and adds the cost of each of the products alongside
+        String newText = currentText + actualSelectedProduct.getProductname() + "  $" + actualSelectedProduct.getProductprice() + "\n"; // appends the Strings to the jtextArea and adds the cost of each of the products alongside
         shoppingCartText.setText(newText); //sets the textarea to the appended string
         String totalprice = String.valueOf(shoppingcart.totalPrice()); // converts the double, total price into a string representation of total price
         TotalPriceLabel.setText("Total Price: $" + totalprice); // now that total price is a string it  can be displayed on the TotalPriceLabel
     }//GEN-LAST:event_addButtonActionPerformed
 
-       //button to clear the shoppinglist
+    //button to clear the shoppinglist
     private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
         shoppingcart = new ShoppingCart(); // clears the shopping cart by making it equal to a new shopping cart object which doesnt contain any products
         shoppingCartText.setText(""); //sets the text area that lists the products in the shoppingcart and price
@@ -334,12 +332,12 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
     }//GEN-LAST:event_CheckOutButtonActionPerformed
 
     private void RestartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartButtonActionPerformed
-         java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AddingToShoppingCart().setVisible(true);
             }
         });
-         dispose();
+        dispose();
     }//GEN-LAST:event_RestartButtonActionPerformed
 
     /**

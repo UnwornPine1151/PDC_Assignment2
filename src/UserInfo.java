@@ -8,18 +8,18 @@
  * @author kstor
  */
 public class UserInfo {
+
     private String name;
     private int age;
     private String contactnumber;
     private String contactemail;
     private String deliveryaddress;
-    
 
-    public UserInfo()
-    {
-        
+    public UserInfo() {
+
     }
-    public UserInfo(String name, int age, String contactnumber, String contactemail,String deliveryaddress) {
+
+    public UserInfo(String name, int age, String contactnumber, String contactemail, String deliveryaddress) {
         this.name = name;
         this.age = age;
         this.contactnumber = contactnumber;
@@ -66,19 +66,14 @@ public class UserInfo {
     public void setDeliveryaddress(String deliveryaddress) { //setter for deliveryaddress
         this.deliveryaddress = deliveryaddress;
     }
-    
-    
+
     public boolean AgeVerification() // a method to determine whether the user is over 18 to see if they can buy the alcoholic drinks
     {
         boolean verification = false; // false until proven
-        if(age > 18)
-        {
+        if (age > 18) {
             System.out.println("age verification successfull, you are over 18 years old");
             verification = true;
-        }
-        
-        else if(age < 18) 
-        {
+        } else if (age < 18) {
             System.out.println("age verfication failed, you are not over 18 years old");
             verification = false;
         }
@@ -89,6 +84,5 @@ public class UserInfo {
     public String toString() { //toString method that displays the UserInfos variables
         return "UserInfo{" + "name = " + name + ", age = " + age + ", contactnumber = " + contactnumber + ", contactemail = " + contactemail + ", deliveryaddress = " + deliveryaddress + '}';
     }
-        
-            
+
 }
