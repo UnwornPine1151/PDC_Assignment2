@@ -1,5 +1,7 @@
 
 import javax.swing.JOptionPane;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,7 +16,7 @@ public class CheckoutCart extends javax.swing.JFrame {
     ShoppingCart shoppingcart = new ShoppingCart();
     Payment payment = new Payment();
     UserInfo customerinfo = new UserInfo();
-
+    
     /**
      * Creates new form CheckoutCart
      */
@@ -25,6 +27,30 @@ public class CheckoutCart extends javax.swing.JFrame {
     public CheckoutCart(ShoppingCart shoppingcart) {
         initComponents();
         this.shoppingcart = shoppingcart;
+        loadShoppingCart(shoppingcart.getShoppingcart());
+    }
+    
+    public void loadShoppingCart(HashMap<Product, Integer> shoppingcart)
+    {
+        ShoppingCartCheckoutTextArea.setText(""); // Clear the text area before appending the updated content
+        double totalCost = 0.0;
+        
+        for (Product key : shoppingcart.keySet()) {
+            ShoppingCartCheckoutTextArea.append(key.getProductname() + " $" + key.getProductprice() + "\n");
+            double price = key.getProductprice();
+            totalCost += price;
+        }
+        
+        CheckoutTotalPriceLabel.setText("Checkout Cart Total Price: $"+totalCost);
+        
+    
+    }
+    
+    public void updateCurrentDetailsText() // method that updates the currentDetails text, it is invoked everytime a set button is pressed so it displays up to date details
+    {
+        CurrentDetailsTextArea.setText("Name: "+customerinfo.getName()+ "\n"+ "Age: "+customerinfo.getAge()+ "\n"+ "Contact Number: "+
+                customerinfo.getContactnumber()+ "\n"+"Contact Email: "+customerinfo.getContactemail()+ "\n"+"Delivery Address: "+customerinfo.getDeliveryaddress()
+        + "\n"+ "CVC: "+payment.getCvc()+ "\n"+ "Card Expiry: "+payment.getCardexpiry()+ "\n"+ "Card Number: "+payment.getCardnumber()+ "\n"+ "Cardholder Full Name: "+payment.getCardholderfullname());
     }
 
     /**
@@ -63,6 +89,15 @@ public class CheckoutCart extends javax.swing.JFrame {
         ContactNumberSet = new javax.swing.JButton();
         SetContactEmailButton = new javax.swing.JButton();
         SetDeliveryAddressButton = new javax.swing.JButton();
+        SetCVCButton = new javax.swing.JButton();
+        SetCardExpiry = new javax.swing.JButton();
+        SetCardNumberButton = new javax.swing.JButton();
+        SetCardholderFullNameButton = new javax.swing.JButton();
+        ConfirmCheckoutButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        CurrentDetailsTextArea = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        RestartButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 204, 153));
@@ -154,74 +189,147 @@ public class CheckoutCart extends javax.swing.JFrame {
             }
         });
 
+        SetCVCButton.setText("Set");
+        SetCVCButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SetCVCButtonActionPerformed(evt);
+            }
+        });
+
+        SetCardExpiry.setText("Set");
+        SetCardExpiry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SetCardExpiryActionPerformed(evt);
+            }
+        });
+
+        SetCardNumberButton.setText("Set");
+        SetCardNumberButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SetCardNumberButtonActionPerformed(evt);
+            }
+        });
+
+        SetCardholderFullNameButton.setText("Set");
+        SetCardholderFullNameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SetCardholderFullNameButtonActionPerformed(evt);
+            }
+        });
+
+        ConfirmCheckoutButton.setBackground(new java.awt.Color(102, 204, 0));
+        ConfirmCheckoutButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ConfirmCheckoutButton.setText("Confirm Checkout");
+        ConfirmCheckoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmCheckoutButtonActionPerformed(evt);
+            }
+        });
+
+        CurrentDetailsTextArea.setEditable(false);
+        CurrentDetailsTextArea.setColumns(20);
+        CurrentDetailsTextArea.setRows(5);
+        jScrollPane2.setViewportView(CurrentDetailsTextArea);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("Current Details:");
+
+        RestartButton.setBackground(new java.awt.Color(204, 0, 51));
+        RestartButton.setForeground(new java.awt.Color(255, 255, 255));
+        RestartButton.setText("Restart");
+        RestartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RestartButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DeliveryAddressTextField)
-                    .addComponent(NameTextField)
-                    .addComponent(ContactNumberTextField)
-                    .addComponent(ContactEmailTextField)
-                    .addComponent(DeliveryAddressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                    .addComponent(ContactEmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(AgeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AgeSetButton))
-                    .addComponent(AgeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ContactNumberLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(SetContactEmailButton)
-                        .addGap(54, 54, 54)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(DeliveryAddressTextField)
+                            .addComponent(NameTextField)
+                            .addComponent(ContactNumberTextField)
+                            .addComponent(ContactEmailTextField)
+                            .addComponent(DeliveryAddressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                            .addComponent(ContactEmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(AgeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AgeSetButton))
+                            .addComponent(AgeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ContactNumberLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(NameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SetContactEmailButton)
+                            .addComponent(NameSetButton)
+                            .addComponent(ContactNumberSet)
+                            .addComponent(SetDeliveryAddressButton))
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
                             .addComponent(CardNumberTextField)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(CardHolderFullNameTextField)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(CheckoutCartLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(CheckoutTotalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(CardNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CardNumberLabel)
+                                .addGap(26, 26, 26)
                                 .addComponent(CVCLabel)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CVCTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SetCVCButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(CardExpiryLabel)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CardExpiryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(67, 67, 67))
-                            .addComponent(CardHolderFullNameTextField)
-                            .addComponent(CardHolderFullNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(ContactNumberSet)
-                    .addComponent(NameSetButton)
-                    .addComponent(SetDeliveryAddressButton))
-                .addContainerGap(87, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SetCardExpiry))
+                            .addComponent(jScrollPane2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CardHolderFullNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(ConfirmCheckoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 1074, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SetCardNumberButton)
+                    .addComponent(SetCardholderFullNameButton))
+                .addGap(28, 28, 28))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(RestartButton))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
+                .addComponent(RestartButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NameSetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CheckoutCartLabel)
-                        .addComponent(CheckoutTotalPriceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(AgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NameSetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CheckoutCartLabel)
+                    .addComponent(CheckoutTotalPriceLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(AgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AgeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(AgeSetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,7 +341,17 @@ public class CheckoutCart extends javax.swing.JFrame {
                             .addComponent(ContactNumberSet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(87, 87, 87)
                         .addComponent(ContactEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CardNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CVCTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CVCLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SetCVCButton)
+                            .addComponent(CardExpiryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CardExpiryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SetCardExpiry))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -247,21 +365,22 @@ public class CheckoutCart extends javax.swing.JFrame {
                             .addComponent(SetDeliveryAddressButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(DeliveryAddressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CardNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(CardExpiryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CardExpiryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CVCTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CVCLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SetCardNumberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CardHolderFullNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CardHolderFullNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CardHolderFullNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SetCardholderFullNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addComponent(ConfirmCheckoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -282,6 +401,7 @@ public class CheckoutCart extends javax.swing.JFrame {
         if (name.matches("[a-zA-Z]+")) { //if the naem contains only letters it will set the value of customerinfo.name to the text in the NameTextField
             customerinfo.setName(name);
             JOptionPane.showMessageDialog(this, "Name set successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            updateCurrentDetailsText(); //updates the currentDetailsTextArea
         } else { // if the text in the NameTextFiled contains anything other than letters, it will show a error popup which asks the user to Please enter a valid name containing letters only.
             JOptionPane.showMessageDialog(this, "Please enter a valid name containing letters only.");
         }
@@ -295,6 +415,7 @@ public class CheckoutCart extends javax.swing.JFrame {
         {
             customerinfo.setAge(age); //sets the customers value of age to the value of the age temp age int 
             JOptionPane.showMessageDialog(this, "Age set successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            updateCurrentDetailsText(); //updates the currentDetailsTextArea
         }
         
         else // invalid input, and displays a error message asking the user to select a valid age between 1 and 120
@@ -310,6 +431,7 @@ public class CheckoutCart extends javax.swing.JFrame {
         {
             customerinfo.setContactnumber(phonenumber); // cause the phone number is valid the customers contactnumber is updated to the phonenumber value
             JOptionPane.showMessageDialog(this, "Phone number set successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            updateCurrentDetailsText(); //updates the currentDetailsTextArea
         }
         else // the phone number is not valid, not 10 digits, therefore displays a error message
         {
@@ -324,6 +446,7 @@ public class CheckoutCart extends javax.swing.JFrame {
         {
             customerinfo.setContactemail(email); // if the email is valid it updates the customerinfos contactemail to the email from the textfield
             JOptionPane.showMessageDialog(this, "Contact Email set successfully.", "Success", JOptionPane.INFORMATION_MESSAGE); //displays a message saying the contact email is set successfully
+            updateCurrentDetailsText(); //updates the currentDetailsTextArea
         }
         else // if the email is not valid shows an error message asking the user to put in a valid email address
         {
@@ -338,12 +461,100 @@ public class CheckoutCart extends javax.swing.JFrame {
         {
             customerinfo.setDeliveryaddress(deliveraddress);
             JOptionPane.showMessageDialog(this, "Delivery Address Confirmed.", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
+            updateCurrentDetailsText(); //updates the currentDetailsTextArea
         }
         else
         {
             JOptionPane.showMessageDialog(this, "Please input a valid Delivery Address", "Invalid Delivery Address", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_SetDeliveryAddressButtonActionPerformed
+
+    private void SetCVCButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetCVCButtonActionPerformed
+       String cvc = CVCTextField.getText();
+       
+       if(payment.setCvc(cvc) == true) //if the validation in the Payment class for setCvc checks out the code will execute and add the CVC to the payment object and display a message
+       {
+           payment.setCvc(cvc);
+           JOptionPane.showMessageDialog(this, "CVC Noted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+           updateCurrentDetailsText(); //updates the currentDetailsTextArea
+       }
+       else
+       {
+           JOptionPane.showMessageDialog(this, "Please input a valid 3 digit CVC", "Invalid CVC", JOptionPane.ERROR_MESSAGE);
+       }
+           
+    }//GEN-LAST:event_SetCVCButtonActionPerformed
+
+    private void SetCardExpiryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetCardExpiryActionPerformed
+        String expiry = CardExpiryTextField.getText();
+        
+        if(payment.setCardExpiry(expiry) == true) // if the validation from the Payment class passes for the cardexpiry the value will be updated and message returned letting the user know
+        {
+            payment.setCardExpiry(expiry);
+            JOptionPane.showMessageDialog(this, "Card Expiry Validated.", "Validation Successful", JOptionPane.INFORMATION_MESSAGE);
+            updateCurrentDetailsText(); //updates the currentDetailsTextArea
+        }
+        else
+        {
+              JOptionPane.showMessageDialog(this, "Please input a valid Card Expiry use the format MM/YY", "Invalid Card Expiry", JOptionPane.ERROR_MESSAGE);
+        }
+            
+    }//GEN-LAST:event_SetCardExpiryActionPerformed
+
+    private void SetCardholderFullNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetCardholderFullNameButtonActionPerformed
+        String cardholderfullname = CardHolderFullNameTextField.getText();
+        
+        if(cardholderfullname.matches("[a-zA-Z]+")) // if the cardholderfullname variable from the text field has a valid name, ie only letters, update the name cardholdername value and give the user a message
+        {
+            payment.setCardholderfullname(cardholderfullname);
+            JOptionPane.showMessageDialog(this, "Cardholder Full Name Validated.", "Validation Successful", JOptionPane.INFORMATION_MESSAGE);
+            updateCurrentDetailsText(); //updates the currentDetailsTextArea
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Please input a valid full name using letters and no spaces", "Invalid Cardholder Full Name", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_SetCardholderFullNameButtonActionPerformed
+
+    private void SetCardNumberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetCardNumberButtonActionPerformed
+        String cardnum = CardNumberTextField.getText();
+        
+        if(payment.setCardnumber(cardnum) == true)
+        {
+            payment.setCardnumber(cardnum);
+            JOptionPane.showMessageDialog(this, "Card Number Validated.", "Validation Successful", JOptionPane.INFORMATION_MESSAGE);
+            updateCurrentDetailsText(); //updates the currentDetailsTextArea
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Please input your valid 16 digit Card Number", "Invalid Card Number", JOptionPane.ERROR_MESSAGE);
+        }
+            
+    }//GEN-LAST:event_SetCardNumberButtonActionPerformed
+
+    private void ConfirmCheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmCheckoutButtonActionPerformed
+        if (customerinfo.getName() == null || customerinfo.getAge() == 0 || customerinfo.getContactnumber() == null || customerinfo.getContactemail() == null || 
+            customerinfo.getDeliveryaddress() == null || payment.getCvc() == null || payment.getCardexpiry() == null || payment.getCardnumber() == null || 
+            payment.getCardholderfullname() == null) 
+        {
+            JOptionPane.showMessageDialog(this, "Please check current details, there can be no null values before checkout", "Update Details", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "All your details are up to date, Thank You for Shopping with us!!!\n Your product will be Delivered soon, Have a Great Day!!!", "Thank You", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_ConfirmCheckoutButtonActionPerformed
+
+    private void RestartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartButtonActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AddingToShoppingCart().setVisible(true);
+            }
+        });
+         dispose();
+    }//GEN-LAST:event_RestartButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -394,19 +605,28 @@ public class CheckoutCart extends javax.swing.JFrame {
     private javax.swing.JTextField CardNumberTextField;
     private javax.swing.JLabel CheckoutCartLabel;
     private javax.swing.JLabel CheckoutTotalPriceLabel;
+    private javax.swing.JButton ConfirmCheckoutButton;
     private javax.swing.JLabel ContactEmailLabel;
     private javax.swing.JTextField ContactEmailTextField;
     private javax.swing.JLabel ContactNumberLabel;
     private javax.swing.JButton ContactNumberSet;
     private javax.swing.JTextField ContactNumberTextField;
+    private javax.swing.JTextArea CurrentDetailsTextArea;
     private javax.swing.JLabel DeliveryAddressLabel;
     private javax.swing.JTextField DeliveryAddressTextField;
     private javax.swing.JLabel NameLabel;
     private javax.swing.JButton NameSetButton;
     private javax.swing.JTextField NameTextField;
+    private javax.swing.JButton RestartButton;
+    private javax.swing.JButton SetCVCButton;
+    private javax.swing.JButton SetCardExpiry;
+    private javax.swing.JButton SetCardNumberButton;
+    private javax.swing.JButton SetCardholderFullNameButton;
     private javax.swing.JButton SetContactEmailButton;
     private javax.swing.JButton SetDeliveryAddressButton;
     private javax.swing.JTextArea ShoppingCartCheckoutTextArea;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

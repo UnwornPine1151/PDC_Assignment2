@@ -26,82 +26,105 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="DeliveryAddressTextField" max="32767" attributes="0"/>
-                  <Component id="NameTextField" max="32767" attributes="0"/>
-                  <Component id="ContactNumberTextField" max="32767" attributes="0"/>
-                  <Component id="ContactEmailTextField" max="32767" attributes="0"/>
-                  <Component id="DeliveryAddressLabel" pref="265" max="32767" attributes="0"/>
-                  <Component id="ContactEmailLabel" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="AgeSpinner" min="-2" pref="86" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="AgeSetButton" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="AgeLabel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="ContactNumberLabel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="NameLabel" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="SetContactEmailButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="DeliveryAddressTextField" max="32767" attributes="0"/>
+                          <Component id="NameTextField" max="32767" attributes="0"/>
+                          <Component id="ContactNumberTextField" max="32767" attributes="0"/>
+                          <Component id="ContactEmailTextField" max="32767" attributes="0"/>
+                          <Component id="DeliveryAddressLabel" pref="265" max="32767" attributes="0"/>
+                          <Component id="ContactEmailLabel" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="AgeSpinner" min="-2" pref="86" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="AgeSetButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="AgeLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="ContactNumberLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="NameLabel" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="SetContactEmailButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="NameSetButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="ContactNumberSet" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="SetDeliveryAddressButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" max="32767" attributes="0"/>
                           <Component id="CardNumberTextField" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Component id="CardHolderFullNameTextField" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Component id="CheckoutCartLabel" min="-2" pref="201" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="CheckoutTotalPriceLabel" min="-2" pref="259" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="CardNumberLabel" min="-2" pref="206" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="CardNumberLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="CVCLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="CVCTextField" min="-2" pref="86" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="SetCVCButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="CardExpiryLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="CardExpiryTextField" min="-2" pref="52" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="SetCardExpiry" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="CardHolderFullNameTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="CardHolderFullNameLabel" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="CardHolderFullNameLabel" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <Component id="ContactNumberSet" min="-2" max="-2" attributes="0"/>
-                  <Component id="NameSetButton" min="-2" max="-2" attributes="0"/>
-                  <Component id="SetDeliveryAddressButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="ConfirmCheckoutButton" min="-2" pref="1074" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="87" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="SetCardNumberButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="SetCardholderFullNameButton" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="RestartButton" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="RestartButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="NameLabel" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="NameTextField" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="NameSetButton" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CheckoutCartLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CheckoutTotalPriceLabel" alignment="3" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="AgeLabel" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="CheckoutCartLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CheckoutTotalPriceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <Component id="AgeLabel" min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="AgeSpinner" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="AgeSetButton" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
@@ -116,11 +139,23 @@
                       <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                       <Component id="ContactEmailLabel" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="248" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="CardNumberLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="CVCTextField" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="CVCLabel" alignment="3" max="32767" attributes="0"/>
+                          <Component id="SetCVCButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="CardExpiryLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="CardExpiryTextField" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="SetCardExpiry" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="ContactEmailTextField" pref="33" max="32767" attributes="0"/>
                           <Component id="SetContactEmailButton" max="32767" attributes="0"/>
@@ -133,26 +168,27 @@
                           <Component id="DeliveryAddressTextField" pref="33" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="CardNumberLabel" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="CardExpiryLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="CardExpiryTextField" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="CVCTextField" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="CVCLabel" alignment="3" max="32767" attributes="0"/>
-                          </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="CardNumberTextField" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="SetCardNumberButton" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="CardNumberTextField" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="CardHolderFullNameLabel" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="CardHolderFullNameTextField" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="CardHolderFullNameTextField" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="SetCardholderFullNameButton" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="81" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              <Component id="ConfirmCheckoutButton" min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -329,6 +365,90 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SetDeliveryAddressButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="SetCVCButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Set"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SetCVCButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="SetCardExpiry">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Set"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SetCardExpiryActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="SetCardNumberButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Set"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SetCardNumberButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="SetCardholderFullNameButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Set"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SetCardholderFullNameButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="ConfirmCheckoutButton">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="cc" red="66" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Confirm Checkout"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConfirmCheckoutButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="CurrentDetailsTextArea">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Current Details:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="RestartButton">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="cc" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Restart"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RestartButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
