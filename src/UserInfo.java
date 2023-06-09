@@ -10,12 +10,16 @@
 public class UserInfo {
     private String name;
     private int age;
-    private int contactnumber;
+    private String contactnumber;
     private String contactemail;
     private String deliveryaddress;
     
 
-    public UserInfo(String name, int age, int contactnumber, String contactemail,String deliveryaddress) {
+    public UserInfo()
+    {
+        
+    }
+    public UserInfo(String name, int age, String contactnumber, String contactemail,String deliveryaddress) {
         this.name = name;
         this.age = age;
         this.contactnumber = contactnumber;
@@ -39,11 +43,11 @@ public class UserInfo {
         this.age = age;
     }
 
-    public int getContactnumber() { //getter for contactnumber
+    public String getContactnumber() { //getter for contactnumber
         return contactnumber;
     }
 
-    public void setContactnumber(int contactnumber) { //setter for contactnumber
+    public void setContactnumber(String contactnumber) { //setter for contactnumber
         this.contactnumber = contactnumber;
     }
 
