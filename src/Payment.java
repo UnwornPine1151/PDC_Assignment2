@@ -10,9 +10,9 @@
 public class Payment {
 
     private String cardnumber; //private variable for cardnumber
-    private String cardexpiry;
-    private String cardholderfullname;
-    private String cvc;
+    private String cardexpiry; //private variable for cardexpiry
+    private String cardholderfullname; //private variable cardholderfullname
+    private String cvc; //private variable cvc
 
     public Payment() {
 

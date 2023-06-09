@@ -21,8 +21,8 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
     public AddingToShoppingCart() {
 
         initComponents();
-        populateProductList();
-        populateProductComboBox();
+        populateProductList();// calls the populateProductList which updates the productList with a bunch of products so the user has products to add in the GUI
+        populateProductComboBox(); //populates the combobox with the products from the productList
     }
 
     private ProductList populateProductList() // my method to populate the productList
@@ -116,13 +116,13 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
     }
 
     private void populateProductComboBox() {
-        jComboBox1.removeAllItems();
+        jComboBox1.removeAllItems(); //removes all the items from the combobox so it is ready to populate
 
-        ProductList productList = populateProductList();
+        ProductList productList = populateProductList(); //creates and populates a productlist object
 
-        if (productList != null) {
-            for (Product product : productList.getProductList()) {
-                jComboBox1.addItem(product.getProductname());
+        if (productList != null) { // if productlist is not null
+            for (Product product : productList.getProductList()) { // it uses a for-each loop to iterate through the productList 
+                jComboBox1.addItem(product.getProductname()); //adds each product in the productList as an item in the combobox using its name as the title
             }
         } else {
             String errorMessage = "ProductList is null";
@@ -131,10 +131,10 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
     }
 
     private Product findProductByName(String productName) { // because the combobox uses strings, i need to take that string(name) and match the string(name) with the product so that i can add it to the ShoppingCart
-        ProductList productList = populateProductList();
+        ProductList productList = populateProductList(); //creates a productlist object that is then populated by the populate function
 
-        for (Product product : productList.getProductList()) {
-            if (product.getProductname().equals(productName)) {
+        for (Product product : productList.getProductList()) {  //uses a for-each loop to iterate through the productlist
+            if (product.getProductname().equals(productName)) { // if the current products name is the same as the inputted products name it returns that product
                 return product;
             }
         }
@@ -144,8 +144,8 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
 
     public void iterateShoppingCartKeys(HashMap<Product, Integer> shoppingcart) { // method so i can iterate through the shoppingcart, need it for remove button
         shoppingCartText.setText(""); // Clear the text area before appending the updated content
-        for (Product key : shoppingcart.keySet()) {
-            shoppingCartText.append(key.getProductname() + " $" + key.getProductprice() + "\n");
+        for (Product key : shoppingcart.keySet()) { //uses a for-each loop to iterate through the ShoppingCartKeys
+            shoppingCartText.append(key.getProductname() + " $" + key.getProductprice() + "\n"); //appends the productsname of the current product to the ShoppingCartText
         }
     }
 
@@ -301,8 +301,8 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         String selectedProduct = (String) jComboBox1.getSelectedItem();// gets a string representation for the value of the Product that is selected in the combobox
         ProductDescriptionLabel.setText(selectedProduct + " Product Description:"); //updates the label so it states that it is the product + Product Description, for example, iphone8 Product Description:
-        Product actualSelectedProduct = findProductByName(selectedProduct);
-        if (actualSelectedProduct != null) {
+        Product actualSelectedProduct = findProductByName(selectedProduct); //creates a product called actualSelectedProduct and uses the findProductByName method taking the string from the combobox as input
+        if (actualSelectedProduct != null) { //if the product object actualSelectedProduct is not null it sets the ProductDescriptionArea to the actualSelectedProducts toString
             ProductDescriptionArea.setText(actualSelectedProduct.toString());
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -332,12 +332,12 @@ public class AddingToShoppingCart extends javax.swing.JFrame {
     }//GEN-LAST:event_CheckOutButtonActionPerformed
 
     private void RestartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartButtonActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() { //Starts the AddingToShoppingCart GUI
             public void run() {
                 new AddingToShoppingCart().setVisible(true);
             }
         });
-        dispose();
+        dispose(); //closes the current JFrame form
     }//GEN-LAST:event_RestartButtonActionPerformed
 
     /**

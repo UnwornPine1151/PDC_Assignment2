@@ -24,23 +24,23 @@ public class CheckoutCart extends javax.swing.JFrame {
         initComponents();
     }
 
-    public CheckoutCart(ShoppingCart shoppingcart) {
+    public CheckoutCart(ShoppingCart shoppingcart) { //new constructor that takes the shoppingCart customized from the AddingToShoppingCart GUI
         initComponents();
-        this.shoppingcart = shoppingcart;
-        loadShoppingCart(shoppingcart.getShoppingcart());
+        this.shoppingcart = shoppingcart; //sets the value of the shoppingcart object in this class to the value of the shoppingcart from the AddingToShoppingCart GUI
+        loadShoppingCart(shoppingcart.getShoppingcart()); 
     }
 
     public void loadShoppingCart(HashMap<Product, Integer> shoppingcart) {
         ShoppingCartCheckoutTextArea.setText(""); // Clear the text area before appending the updated content
-        double totalCost = 0.0;
+        double totalCost = 0.0; //total cost variable
 
-        for (Product key : shoppingcart.keySet()) {
-            ShoppingCartCheckoutTextArea.append(key.getProductname() + " $" + key.getProductprice() + "\n");
-            double price = key.getProductprice();
-            totalCost += price;
+        for (Product key : shoppingcart.keySet()) { //for each loop to iterate through the shoppingcart
+            ShoppingCartCheckoutTextArea.append(key.getProductname() + " $" + key.getProductprice() + "\n"); // code to append the productname and product price to the shoppingcartcheckouttextarea
+            double price = key.getProductprice(); //creates a double called price
+            totalCost += price; // which is added to total cost
         }
 
-        CheckoutTotalPriceLabel.setText("Checkout Cart Total Price: $" + totalCost);
+        CheckoutTotalPriceLabel.setText("Checkout Cart Total Price: $" + totalCost); //updates the Total price label to the total price double
 
     }
 
@@ -416,7 +416,7 @@ public class CheckoutCart extends javax.swing.JFrame {
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
         } else // invalid input, and displays a error message asking the user to select a valid age between 1 and 120
         {
-            JOptionPane.showMessageDialog(this, "Please select a valid age between 1 and 120.", "Invalid Age", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please select a valid age between 1 and 120.", "Invalid Age", JOptionPane.ERROR_MESSAGE); //displays error message
         }
     }//GEN-LAST:event_AgeSetButtonActionPerformed
 
@@ -430,7 +430,7 @@ public class CheckoutCart extends javax.swing.JFrame {
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
         } else // the phone number is not valid, not 10 digits, therefore displays a error message
         {
-            JOptionPane.showMessageDialog(this, "Please input a valid 10 digit phone number.", "Invalid Phone Number", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please input a valid 10 digit phone number.", "Invalid Phone Number", JOptionPane.ERROR_MESSAGE); //displays error message
         }
     }//GEN-LAST:event_ContactNumberSetActionPerformed
 
@@ -444,7 +444,7 @@ public class CheckoutCart extends javax.swing.JFrame {
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
         } else // if the email is not valid shows an error message asking the user to put in a valid email address
         {
-            JOptionPane.showMessageDialog(this, "Please input a valid email", "Invalid Contact Email", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please input a valid email", "Invalid Contact Email", JOptionPane.ERROR_MESSAGE); //displays error message
         }
     }//GEN-LAST:event_SetContactEmailButtonActionPerformed
 
@@ -456,7 +456,7 @@ public class CheckoutCart extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Delivery Address Confirmed.", "Confirmed", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
         } else {
-            JOptionPane.showMessageDialog(this, "Please input a valid Delivery Address", "Invalid Delivery Address", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please input a valid Delivery Address", "Invalid Delivery Address", JOptionPane.ERROR_MESSAGE); //displays error message
         }
     }//GEN-LAST:event_SetDeliveryAddressButtonActionPerformed
 
@@ -469,7 +469,7 @@ public class CheckoutCart extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "CVC Noted.", "Success", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
         } else {
-            JOptionPane.showMessageDialog(this, "Please input a valid 3 digit CVC", "Invalid CVC", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please input a valid 3 digit CVC", "Invalid CVC", JOptionPane.ERROR_MESSAGE); //displays error message
         }
 
     }//GEN-LAST:event_SetCVCButtonActionPerformed
@@ -483,7 +483,7 @@ public class CheckoutCart extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Card Expiry Validated.", "Validation Successful", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
         } else {
-            JOptionPane.showMessageDialog(this, "Please input a valid Card Expiry use the format MM/YY", "Invalid Card Expiry", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please input a valid Card Expiry use the format MM/YY", "Invalid Card Expiry", JOptionPane.ERROR_MESSAGE); //displays error message
         }
 
     }//GEN-LAST:event_SetCardExpiryActionPerformed
@@ -497,7 +497,7 @@ public class CheckoutCart extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Cardholder Full Name Validated.", "Validation Successful", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
         } else {
-            JOptionPane.showMessageDialog(this, "Please input a valid full name using letters and no spaces", "Invalid Cardholder Full Name", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please input a valid full name using letters and no spaces", "Invalid Cardholder Full Name", JOptionPane.ERROR_MESSAGE); //displays error message
         }
     }//GEN-LAST:event_SetCardholderFullNameButtonActionPerformed
 
@@ -509,7 +509,7 @@ public class CheckoutCart extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Card Number Validated.", "Validation Successful", JOptionPane.INFORMATION_MESSAGE);
             updateCurrentDetailsText(); //updates the currentDetailsTextArea
         } else {
-            JOptionPane.showMessageDialog(this, "Please input your valid 16 digit Card Number", "Invalid Card Number", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please input your valid 16 digit Card Number", "Invalid Card Number", JOptionPane.ERROR_MESSAGE); //displays error message
         }
 
     }//GEN-LAST:event_SetCardNumberButtonActionPerformed
@@ -518,7 +518,7 @@ public class CheckoutCart extends javax.swing.JFrame {
         if (customerinfo.getName() == null || customerinfo.getAge() == 0 || customerinfo.getContactnumber() == null || customerinfo.getContactemail() == null
                 || customerinfo.getDeliveryaddress() == null || payment.getCvc() == null || payment.getCardexpiry() == null || payment.getCardnumber() == null
                 || payment.getCardholderfullname() == null) {
-            JOptionPane.showMessageDialog(this, "Please check current details, there can be no null values before checkout", "Update Details", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please check current details, there can be no null values before checkout", "Update Details", JOptionPane.ERROR_MESSAGE); //displays error message
         } else {
             JOptionPane.showMessageDialog(this, "All your details are up to date, Thank You for Shopping with us!!!\n Your product will be Delivered soon, Have a Great Day!!!", "Thank You", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -527,12 +527,12 @@ public class CheckoutCart extends javax.swing.JFrame {
     }//GEN-LAST:event_ConfirmCheckoutButtonActionPerformed
 
     private void RestartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartButtonActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() { //Starts the AddingToShoppingCart GUI
             public void run() {
-                new AddingToShoppingCart().setVisible(true);
+                new AddingToShoppingCart().setVisible(true); 
             }
         });
-        dispose();
+        dispose(); //closes the current JFrame form
     }//GEN-LAST:event_RestartButtonActionPerformed
 
     /**
